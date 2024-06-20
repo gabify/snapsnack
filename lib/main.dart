@@ -1,26 +1,70 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home:Scaffold(
-      appBar: AppBar(
-        title: Center(
-          child: Text('SnapSnack App'),
-        ),
-        backgroundColor: Colors.amber[700],
-      ),
-      body: Center(
-        child: Image.network('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1530&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.amber[700],
-        child: Icon(
-            Icons.add,
-            color: Colors.white60,
-        ),
+void main() => runApp(MaterialApp(
+  home: Scaffold(
+    backgroundColor: Colors.white60,
+    appBar: AppBar(
+      title: Text('User Profile'),
+      backgroundColor: Colors.orange[600],
+      centerTitle: true,
+    ),
+    body: Padding(
+      padding: EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'NAME',
+            style: TextStyle(
+              fontSize: 16.0,
+              color: Colors.white70,
+              letterSpacing: 2.0,
+            ),
+          ),
+          Text(
+            'Ivan Gabriel B. Talaoc',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontSize: 25.0
+            ),
+          ),
+          SizedBox(height: 30.0,),
+          Text(
+            'YEAR',
+            style: TextStyle(
+              fontSize: 16.0,
+              color: Colors.white70,
+              letterSpacing: 2.0,
+            ),
+          ),
+          Text(
+            '4th',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 25.0
+            ),
+          ),
+          SizedBox(height: 30.0,),
+          Text(
+            'EMAIL',
+            style: TextStyle(
+              fontSize: 16.0,
+              color: Colors.white70,
+              letterSpacing: 2.0,
+            ),
+          ),
+          Text(
+            'ivangabriel.talaoc@g.batstate-u.edu.ph',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 25.0
+            ),
+          ),
+        ],
       ),
     ),
-  ));
-}
-
+  ),
+));
