@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    parameter = ModalRoute.of(context)?.settings.arguments;
+    parameter = parameter != null ? data : ModalRoute.of(context)?.settings.arguments;
     data = jsonDecode(jsonEncode(parameter));
     return Scaffold(
       body: SafeArea(
@@ -24,16 +24,24 @@ class _HomeState extends State<Home> {
           padding: const EdgeInsets.fromLTRB(0, 120.0, 0, 0),
           child: Column(
             children: <Widget>[
-              TextButton(
-                  onPressed: (){
-                    Navigator.pushNamed(context, '/chooseLocation');
-                  },
-                  child: Row(
-                    children: <Widget>[
-                      Icon(Icons.edit_location),
-                      Text('Edit Location')
-                    ],
-                  )
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                      onPressed: () async{
+                        dynamic result = await Navigator.pushNamed(context, '/chooseLocation');
+                        setState(() {
+                          data = jsonDecode(jsonEncode(result));
+                        });
+                      },
+                      child: Row(
+                        children: <Widget>[
+                          Icon(Icons.edit_location),
+                          Text('Edit Location')
+                        ],
+                      )
+                  ),
+                ],
               ),
               SizedBox(height: 30.0,),
               Row(
