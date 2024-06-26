@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int year = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +31,7 @@ class Home extends StatelessWidget {
                 Center(
                   child: CircleAvatar(
                     backgroundImage: AssetImage('assets/boy.png'),
+                    backgroundColor: Colors.orange[400],
                     radius: 65.0,
                   ),
                 ),
@@ -42,7 +50,7 @@ class Home extends StatelessWidget {
                       'NAME',
                       style: TextStyle(
                         fontSize: 16.0,
-                        color: Colors.grey[500],
+                        color: Colors.grey[700],
                         letterSpacing: 2.0,
                       ),
                     ),
@@ -75,7 +83,7 @@ class Home extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '4th',
+                  '$year Year',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.grey[700],
@@ -114,13 +122,18 @@ class Home extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 ElevatedButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      setState(() {
+                        year += 1;
+                      });
+                    },
                     child: Text(
                         'Add Year',
                         style: TextStyle(
                           color: Colors.white70,
                           fontSize: 16.0,
                           letterSpacing: 2.0,
+                          fontWeight: FontWeight.bold
                         ),
                     ),
                   style: ButtonStyle(
@@ -135,5 +148,7 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+
 
 
