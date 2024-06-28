@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 
 class Dashboard extends StatefulWidget {
-  const Dashboard({super.key});
 
   @override
   State<Dashboard> createState() => _DashboardState();
@@ -13,25 +12,37 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      body: SafeArea(
-        child: Column(
-          children: [
-            ElevatedButton(
-              onPressed: (){
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 3.0,
+        onTap: (int val){
+            switch(val){
+              case 0:
+                Navigator.pushNamed(context, '/');
+                break;
+              case 1:
                 Navigator.pushNamed(context, '/menu');
-              },
-              child: Text('Go to menu'),
-            ),
-            ElevatedButton(
-              onPressed: (){
+                break;
+              case 2:
                 Navigator.pushNamed(context, '/profile');
-              },
-              child: Text('Go to profile'),
-            ),
-          ],
-        ),
+                break;
+            }
+        },
+        currentIndex: 0,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.fastfood),
+              label: 'Menu'
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+          ),
+        ],
       ),
-
     );
   }
 }

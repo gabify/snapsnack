@@ -26,6 +26,7 @@ class _MenuState extends State<Menu> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
+
         backgroundColor: Colors.orange[500],
         foregroundColor: Colors.white70,
         title: Text(
